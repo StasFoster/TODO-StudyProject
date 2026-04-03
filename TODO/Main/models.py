@@ -19,4 +19,4 @@ class Task(models.Model):
     discription = models.TextField(max_length=700, null=True, verbose_name="Описание задачи")
     tags = models.TextField(choices=Tag.choices, null=True, verbose_name="Теги")
     progress = models.IntegerField(choices=Progress.choices, default=0, verbose_name="Прогресс")
-    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор задачи")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор задачи", related_name="task")

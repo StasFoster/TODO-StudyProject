@@ -4,7 +4,7 @@ from .core_logic import get_statistical
 from django.http import JsonResponse
 
 def test(request):
-    user = User.objects.get(id=2)
+    user = User.objects
     stat = get_statistical(user)
     return JsonResponse(stat)
 

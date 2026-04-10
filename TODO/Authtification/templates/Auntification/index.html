@@ -19,7 +19,7 @@
             {% endif %}
         </h2>
 
-        <form method="POST" class="auth-form">
+        <form method="POST" action="{% if flag %} {% url "login" %} {% else %} {% url "reg" %} {% endif %}" class="auth-form">
             {% csrf_token %}
 
             <div class="form-fields">

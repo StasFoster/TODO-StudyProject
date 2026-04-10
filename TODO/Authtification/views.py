@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+def enter(request):
+    if request.user.is_authenticated:
+        return redirect("main")
+    else:
+        return redirect("register", mode='registr')
+    
+

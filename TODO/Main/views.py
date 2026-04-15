@@ -23,7 +23,12 @@ def create(request):
 
 def update(request):
     form = core_logic.updateTask(request)
-    if form:
+    if form == True:
         return redirect("main")
     else:
-        return render(request, "", {"form":form})
+        return render(request, "Main/updateTask.html", {"form":form})
+    
+def changeState(request):
+    core_logic.changeState(request)
+    print("___1___")
+    return redirect(main)

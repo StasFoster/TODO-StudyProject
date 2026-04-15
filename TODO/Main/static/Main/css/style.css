@@ -1,6 +1,15 @@
 .main-wrapper {
     max-width: 900px;
     margin: 0 auto;
+    padding: 20px;
+}
+
+/* ОБЩАЯ КАРТОЧКА */
+.card {
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    margin: 20px;
 }
 
 /* ===== СТАТИСТИКА ===== */
@@ -18,10 +27,8 @@
 .stat-item {
     padding: 15px;
     border-radius: 10px;
-
     background: rgba(255, 255, 255, 0.05);
     text-align: center;
-
     transition: 0.3s;
 }
 
@@ -37,20 +44,53 @@
     box-shadow: 0 0 15px rgba(0,150,255,0.3);
 }
 
+/* ===== КНОПКА ===== */
+.create-block {
+    margin: 20px;
+    text-align: right;
+}
+
+.create-btn {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 /* ===== ЗАДАЧИ ===== */
 .tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* ВАЖНО: расстояние между карточками */
     margin-top: 20px;
 }
 
 .task-card {
+    display: block;
+    margin: 20px;
+}
+
+.task-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px; /* расстояние внутри */
+}
+
+.task-content h4 {
+    margin: 0;
+    flex: 1;
+    word-break: break-word;
 }
 
 .task-actions {
     display: flex;
     gap: 10px;
+    flex-shrink: 0;
+}
+
+/* SELECT */
+.stats-dropdown {
+    padding: 5px 10px;
+    border-radius: 6px;
 }
 
 /* ===== EMPTY ===== */
@@ -69,19 +109,92 @@
     background: linear-gradient(90deg, #ff4d4d, #ff0000);
 }
 
-.logout-btn:hover {
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
-}
-.create-block {
-    margin-bottom: 20px;
-    text-align: right;
-}
-
-.create-btn {
-    font-weight: 600;
-    letter-spacing: 0.5px;
+/* HOVER */
+.task-card:hover {
+    box-shadow: 0 0 20px rgba(0,150,255,0.3);
+}.task-card {
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
-.create-btn:hover {
-    box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+/* ✏️ Кнопка редактирования */
+.edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    text-decoration: none;
+    font-size: 18px;
+
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.edit-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Контент */
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+    position: relative;
+}
+
+/* кнопка ⋮ */
+.dropdown-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.dropdown-toggle:hover {
+    opacity: 1;
+}
+
+/* меню */
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 30px;
+
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 10px;
+
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+
+    display: none;
+    min-width: 180px;
+    z-index: 10;
+}
+
+/* select внутри */
+.dropdown-menu select {
+    width: 100%;
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* показываем */
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+/* hover карточки */
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 25px rgba(0,150,255,0.25);
 }

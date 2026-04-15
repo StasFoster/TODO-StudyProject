@@ -58,6 +58,10 @@ def changeState(request):
     task.progress = state
     task.save()
     
+def deleteTask(request):
+    id = request.POST.get("id")
+    task = models.Task.objects.get(id=id)
+    task.delete()
 
 
 
